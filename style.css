@@ -1,0 +1,162 @@
+*{
+	font-family:helvetica;
+}
+body {
+	background-color:lightgrey;
+}
+#background{
+	width: 1000px;
+	position: absolute;
+	top: -246px;
+	left: -6px;
+}
+a{
+	color: #668033;
+	text-decoration:none;
+	font-weight:bold;
+}
+a:hover{
+	color:#6ba100;	
+}
+#page-wrapper{
+	margin:0 auto;	
+	width:1402px;
+}
+#course-container{
+	background-color:#EEEEEE;
+	height:800px;
+	width:1000px; 
+	margin:auto;
+	position:relative;
+	float:left;
+	max-width:1000px;
+}
+
+#side-information{
+	height:800px;
+	width:400px;
+	background-color:#EEEEEE;
+	position:relative;
+	float:left;
+	border-left:2px solid grey; 
+}
+
+#info-title{
+	width:394px;
+	border-bottom:2px solid grey; 
+	height:auto;
+	padding-left:6px;
+	padding-top:20px;
+}
+
+#info-title h2{
+	
+}
+
+#desc-area{
+	padding-left:6px;
+	height:auto;
+	font-size:20px;
+}
+
+.course{
+	height:30px;
+	width:90px;
+	background-color:#668033;
+}
+
+.column{
+	position:relative;
+	float:left;
+	height:1000px;
+	width:14.28%;
+}
+
+#col1{
+	background-color:red;
+}
+#col2{
+	background-color:blue;
+}
+#col3{
+	background-color:orange;
+}
+#col4{
+	background-color:pink;
+}
+#col5{
+	background-color:white;
+}
+#col6{
+	background-color:yellow;
+}
+#col7{
+	background-color:grey;
+}
+
+x-course,
+.button{
+	max-width:90px;
+	padding:5px 5px 5px 5px; 
+	text-align:center;
+	line-height:30px;
+	float:left;
+	position:absolute;
+	background-color:#668033;
+	margin:6px 6px 6px 6px;	
+	color:white;
+	border:1px solid grey;
+	border-radius:6px;	
+	cursor:pointer;
+}
+x-course:hover{
+	background-color:#75923a;
+}
+.button{
+	width:100px;
+	background-color:#444;
+}
+.button:hover{
+	width:100px;
+	background-color:#555;
+}
+#reset-button{
+	left:88%;
+	top:93%;
+}
+#fall-button{
+	left:55%;
+	top:93%;
+}
+#spring-button{
+	left:66%;
+	top:93%;
+}
+#both-button{
+	left:77%;
+	top:93%;
+}
+.completed{
+	background-color:#ccff66;
+	color:black;
+}
+.completed:hover{
+	background-color:#d5ff80;
+}
+.unavailable{
+	background-color:#AAA;
+}
+.unavailable:hover{
+	background-color:#BBB;
+}
+.wrong-season{
+	background-color:#333;
+	color:white;
+}
+.wrong-season:hover{
+	background-color:#444;
+}
+
+.bold-course{
+	border: 3px solid black;
+}
