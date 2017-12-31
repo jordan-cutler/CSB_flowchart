@@ -293,15 +293,6 @@ $( document ).ready(function() {
 			$("x-course").removeClass("bold-course");
 		});
 
-		var b = 0;
-		$("#flow_title1").click(
-			function () {
-				b += 1;
-				if (b >= 50) {
-					document.getElementById("flow_title").innerHTML = "Lehigh University <br/>CS🅱 Course Flowchart";
-				}
-		});
-
 		$("#desc-area").html();
 	    for (var y = 0; y < masterCourseList.length; y++) {
 			$("#desc-area").append("<div class='accordion' id='block'>" + masterCourseList[y].name +
