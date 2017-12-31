@@ -1,33 +1,57 @@
 <!DOCTYPE html>
 <html>
-<title> CSB courses </title>
+	<head>
+		<meta charset="utf-8"/>
+		<title> CSB Course Flowchart </title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<script src = "jquery.js" type="text/javascript"></script>
+		<script src = "hoverIntent.js" type = "text/javascript"></script>
+		<script src = "coursesController.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id = "page-wrapper">
+			<div id = "course-container">
+				<img id = "background" src = "background.PNG">
+				<div id = "reset" class="button">Reset</div>
+				<div id = "fall">Fall ONLY</div>
+				<div id = "spring">Spring ONLY</div>
+				<div id = "both">Both</div>
+				<div id = "legend">
+					<b>Note:</b><br/>
+					The following courses are substitutes, see the sidebar for more information: 
+					<ul id='substitutes'>
+					<li>BUS001/BUS002</li>
+					<li>CSE001/CSE012/ENGR010</li>
+					<li>CSE241/CSE341</li>
+					<li>ECO045/MATH231</li>
+					<li>ENGL001/ENGL003</li>
+					<li>ENGL002/ENGL005/ENGL011</li>
+					<li>MATH021/MATH075&amp;MATH076</li>
+					</ul>
+					Anticipatory exams are also offered for incoming first-years in the following courses:
+					CSE001&amp;CSE002, CSE017, MATH021, MATH022. 
+					<a target="_blank" href='https://studentaffairs.lehigh.edu/content/additional-information'>More Info on Anticipatory Exams</a>
+				</div>
+			</div>
 
-<head>
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-
-<div id = "page-wrapper">
-<body>
-<div id = "course-container">
-<img id = "background" src = "arrows.gif">
-<div id = "reset-button" class = "button">Reset</div>
-<div id = "spring-button" class = "button">Spring</div>
-<div id = "fall-button" class = "button">Fall</div>
-<div id = "both-button" class = "button">Both</div>
-</div>
-
-<div id = "side-information">
-<div id = "info-title"> <h2> LU CSB Flowchart </h2> </div>
-<div id = "desc-area"> </div> 
-
-<div>
-</div>
-
-<script src = "jquery.js" type="text/javascript"></script>
-<script src = "hoverIntent.js" type = "text/javascript"></script>
-<script src = "coursesController.js" type="text/javascript"></script>
-
-</body>
-
-
+			<div id = "side-information">
+			<table cellspacing="0" cellpadding="0">
+				<tr id='flow_title1'>
+					<th colspan='2' id='flow_title'>
+						Lehigh University<br/>CSB Course Flowchart
+					</th>
+				</tr>
+				<section id='blue'>
+				<tr class="bottom">
+					<td><div class="active2" id = "courseListing">Courses</div></td>
+					<td><div class="active3" id = "Placement">Placement</div></td>
+				</tr>
+				</section>
+				<tr class="bottom">
+					<td colspan="2" class="bottom"><div id = "desc-area"></div><div id = "ap"></div></td>
+				</tr>
+			</table>
+			</div>
+		</div>
+	</body>
 </html>
