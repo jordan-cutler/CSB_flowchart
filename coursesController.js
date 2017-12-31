@@ -313,14 +313,14 @@ $( document ).ready(function() {
 		}
 
 		var s = "<div id = 'ap-scroll'>";
-		$("#ap").html("<tr><td colspan='2'><div id='ap_button'>Show Courses Skipped</div></td></tr>");
+		$("#ap").html("<tr><td colspan='2' id='f'><div id='ap_button'>Show Courses Skipped</div></td></tr>");
 	    for (var y = 0; y < masterAPList.length; y++) {
-	    	s = s + "<div id='ap_style' class='ap_style'><table class='ap_style_table'><tr><th id='p'>" + masterAPList[y].name + 
-	    	    "</td><th id='q'><select class='selector' id='" + y + "' align='right'>";
+	    	s = s + "<div id='ap_style' class='ap_style'><section id='why1'>" + masterAPList[y].name + 
+	    	    "</section><section id='why2' style='height:100%;'><select align='right' class='selector' id='" + y + "'>";
 			for (var x = 0; x < masterAPList[y].options.length; x++) {
 				s = s + "<option value='" + x + "'>" + masterAPList[y].options[x] + "</option>";
 			}
-			s = s + "</select></td></tr></table></div>";
+			s = s + "</select></section></div>";
 		}
 		s = s + "</div>";
 		$("#ap").append(s);

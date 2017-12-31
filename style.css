@@ -1,6 +1,6 @@
 * {
-	font-family:Verdana;
-	background-color:#E6E2DF;
+	font-family: 'Montserrat', sans-serif;
+	background-color:white;
 }
 
 #background {
@@ -25,6 +25,7 @@
 	font-size:22px;
 	text-align: left;
 	max-height: 30px;
+	font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -50,7 +51,6 @@ table {
 }
 
 #course-container {
-	background-color:#E6E2DF;
 	height:600px;
 	width:950px; 
 	position:relative;
@@ -73,8 +73,21 @@ table {
 #ap {
 	display:none;
 	max-height: 490px;
-	max-width:280px;
-	padding-left:6px;
+	max-width:285px;
+}
+
+#why1 {
+	width:70%;
+	background-color:#428bca;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+#why2 {
+	width:30%;
+	background-color:#428bca;
+	display:inline-block;
+	vertical-align:middle;
 }
 
 #ap-scroll {
@@ -82,6 +95,12 @@ table {
 	height:417px;
 	margin-top:5px;
 	margin-bottom: 0px;
+	padding-left:5px;
+}
+
+#f {
+	padding-left:5px;
+	padding-right:5px;
 }
 
 #desc-area {
@@ -111,12 +130,12 @@ table {
 	vertical-align: bottom;
     width:90%;
     cursor: pointer;
-    border-color:#2b9dc8;
+    border-color:#428bca;
     margin-top:5px;
 	padding-top: 2px;
     transition: 0.4s;
     border-style:solid;
-    background-color:#2b9dc8;
+    background-color:#428bca;
     border-radius: 7px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -126,13 +145,13 @@ table {
 	padding-left:10px;
 	color:white;
 	font-size: 14px;
-    border-color:#2b9dc8;
+    border-color:#428bca;
     margin-top:5px;
     margin-bottom:5px;
 	padding-top: 2px;
     transition: 0.4s;
     border-style:solid;
-    background-color:#2b9dc8;
+    background-color:#428bca;
     border-radius: 7px;
 }
 
@@ -142,7 +161,7 @@ table {
 
 select {
 	vertical-align: text-top;
-	width:100%;
+	width:50px;
 }
 
 option {
@@ -151,25 +170,29 @@ option {
 
 
 .ap_style_table {
-	background-color:#2b9dc8;
+	background-color:#428bca;
 	width:100%;
 	padding-left: 0px;
 }
 
 .selector {
-	border:auto;
-	margin: 0px;
+	border:0px;
+	margin-right: 0px;
 	width:100%;
 	color:black;
 	padding:1px 1px;
-
+	background-color: #A2DEEA;
+	border-radius:5px;
+	vertical-align:middle;
+	display:inline-block;
+	height: 100%;
 }
 
 .panel {
     width:90%;
     color:black;
     font-size: 14px;
-    border-color:#2b9dc8;
+    border-color:#428bca;
     border-style:solid;
     border-bottom-right-radius: 7px;
     border-bottom-left-radius: 7px;
@@ -186,8 +209,8 @@ option {
 	border-style:solid;
 	border:5px;
 	padding:5px;
-	border-color: #2b9dc8;
-	background-color: #95d1e8;
+	border-color: #428bca;
+	background-color: #A2DEEA;
 }
 
 
@@ -195,9 +218,9 @@ option {
 	border-bottom-left-radius:0px;
 	border-bottom-right-radius: 0px;
 	transition: 0s;
-	background-color:#95d1e8;
+	background-color:#A2DEEA;
 	color:black;
-	border-color:#95d1e8;
+	border-color:#A2DEEA;
 }
 div {
 	display: block;
@@ -207,60 +230,59 @@ div {
 	border-bottom-left-radius:7px;
 	border-bottom-right-radius: 7px;
 	color:black;
-	border-color:#95d1e8;
+	border-color:#A2DEEA;
 	margin-right:10px;
 }
 
 .active2 {
 	color:black;
-	border-color:#95d1e8;
-	background-color:#95d1e8;
+	border-color:#A2DEEA;
+	background-color:#A2DEEA;
 	transition:0.4s ease-out;
 
 }
 
 .active3 {
 	color:white;
-	border-color:#2b9dc8;
-	background-color:#2b9dc8;
+	border-color:#428bca;
+	background-color:#428bca;
 	transition:0.4s ease-out;
 }
 
 #blue {
-	background-color:#2b9dc8; 
+	background-color:#428bca; 
 }
 
 #p {
-	width:75%;
-	max-width: 75%;
+	width: 75%;
 	text-align:left;
-    background-color:#2b9dc8;
+    background-color:#428bca;
 }
 
 #q {
 	width:25%;
-	background-color:#2b9dc8;
+	background-color:#428bca;
 }
 
 table {
 	padding-left: 5px;
 	border:0px;
-	border:collapse;
+	border-collapse:collapse;
 	margin:0px;
 	display: block;
 }
 td {
 	width:50%;
-	border:collapse;
+	border-collapse:collapse;
 
 }
 
 tbody {
 	border:0px;
-	background-color:#2b9dc8;
-	border-color:#2b9dc8;
+	background-color:#428bca;
+	border-color:#428bca;
 	color:white;
-	width:100%;
+	display: table;
 }
 
 hr {
@@ -280,13 +302,13 @@ th {
 	cursor:pointer;
 	border-radius:10px;
 	border-style:solid;
-	border-color:#2b9dc8;
+	border-color:#428bca;
 	border:5px;
 	transition:0.4s;
 }
 
 #reset, #fall, #spring, #both {
-	background-color:#2b9dc8;
+	background-color:#428bca;
 	color:white;
 	width:130px;
 	text-align:center;
@@ -307,10 +329,18 @@ th {
 	font-size: 11px;
 }
 
+#subs {
+	font-size:10px;
+}
+
 #substitutes {
 	font-size: 11px;
 	margin-top:0px;
-	margin-bottom:5px;
+	margin-bottom:0px;
+}
+
+ul {
+	margin:0px;
 }
 
 #ap_button {
@@ -323,7 +353,7 @@ th {
 	padding-bottom: 10px;
 	cursor:pointer;
 	border-radius:10px;
-	background-color:#2b9dc8;
+	background-color:#428bca;
 	margin-left:0px;
 	margin-right:0px;
 	margin-top:10px;
@@ -371,13 +401,16 @@ th {
 
 
 x-course {
-	max-width:45px;
-	padding:1px 1px 1px 1px; 
+	max-width:47.5px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 2px;
+	padding-right:2px;
 	text-align:center;
 	line-height:20px;
 	float:left;
 	position:absolute;
-	background-color:#2b9dc8;
+	background-color:#428bca;
 	margin:1px 1px 1px 1px;	
 	color:white;
 	border:1px solid grey;
@@ -389,14 +422,15 @@ x-course {
 
 
 .completed {
-	background-color:#95d1e8;
+	background-color:#A2DEEA;
 	color:black;
 	transition:0.4s;
 }
 
 
 .unavailable {
-	background-color:#AAAAAA;
+	background-color:white;
+	color:black;
 }
 
 .fall-season,.spring-season,.both-season, .bold-course {
