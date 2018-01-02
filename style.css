@@ -46,7 +46,7 @@ table {
 }
 
 #page-wrapper {
-	margin:0px auto;	
+	margin:auto;	
 	width:1252px;
 	border:0px;
 }
@@ -59,6 +59,7 @@ table {
 	max-width:950px;
 	border-right-style: 
 	border-right:5px;
+	margin:auto;
 }
 
 #side-information {
@@ -69,6 +70,7 @@ table {
 	position:relative;
 	float:left;
 	border-left:2px solid grey; 
+	margin:auto;
 }
 
 #ap {

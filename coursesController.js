@@ -1,8 +1,9 @@
 $( document ).ready(function() {
 
-	//document.registerElement('x-course');
 	var masterCourseList = new Array();
 	var masterAPList = new Array();
+
+	/* Uses AJAX. if you want to edit the code, FYI run on firefox or edge because chrome doesn't allow AJAX to run locally. */
 	$.ajax({
 		type: "GET", url: 'data.json', dataType:'json'}).done(function (data) {
 		$.each( data.courses, function(i, course) {
@@ -14,6 +15,7 @@ $( document ).ready(function() {
 		init();
 	});
 	
+	/* Creates course objects. */
 	function Course(course){
 			this.id = course.course.id;
 			this.depts = course.course.depts;
@@ -29,7 +31,7 @@ $( document ).ready(function() {
 			this.tags = course.course.tags;
 			this.tags = this.tags[0] + " " + this.tags[1];
 			this.threshold = course.course.threshold;
-		if (course.course.view == true) {
+		if (course.course.view == true) { /* Boxes only actually appear if view is set to true in the database. */
 			$("#course-container").append("<x-course id =" + this.id + ">" + this.depts + " " + this.courseNo + "</x-course>");
 			$("#" + this.id).attr("name", this.depts + "<br/>" + this.courseNo);
 			$("#" + this.id).attr("nameR", this.name);
@@ -46,10 +48,7 @@ $( document ).ready(function() {
 		}	
 	}
 
-	function getId () {
-		return this.id;
-	}
-
+	/* Creates an AP object. */
 	function Placement(apInfo){
 			this.id = apInfo.apInfo.id;
 			this.type = apInfo.apInfotype;
@@ -62,6 +61,7 @@ $( document ).ready(function() {
 	
 	function init(){
 		
+		/* This is needed for startup, no idea what it actually does but don't touch it probably. */
 		$.fn.disableSelection = function() {
         return this
                  .attr('unselectable', 'on')
@@ -69,6 +69,10 @@ $( document ).ready(function() {
                  .on('selectstart', false);
 		};
 
+		/* The merge sort  and merge functios are used for alphabetically sorting the class listings. I modified some code I got off
+		   of this one blog for this one so all credit to http://www.stoimen.com/blog/2010/07/02/friday-algorithms-javascript-merge-sort/
+		   You just need to pass the array of courses to it and it will sort them first by department (ACCT, BUS, CSE) alphabetically
+		   and then it'll sort by ascending numerical class order within that department. */
 		function mergeSort(arr)
 		{
 		    if (arr.length < 2)
@@ -108,9 +112,11 @@ $( document ).ready(function() {
 		    return result;
 		}
 
+		// Organizes the list
 		masterCourseList = mergeSort(masterCourseList);
 
 
+		/* If you complete a course, it also completes the prereqs. */
 		function completeCourse (id) {
 			$(id).addClass("completed");
 			$(id).removeClass("unavailable");
@@ -118,6 +124,7 @@ $( document ).ready(function() {
 		}
 		
 		
+		/* This function repeatedly checks the prereqs for a given course. */
 		function checkPrereqs(prereq){
 			var prereqs = prereq.split(",");
 			var courses = $( "x-course" ).get();
@@ -145,10 +152,10 @@ $( document ).ready(function() {
 			});
 		}
 		
-		var q = 0;
-		var t;
-		var completed = false;
+		var completed = false; //For the CSE 198/140 thing
 
+		/* Checks if the course is available. The CSE 198/140/261 thing with having OR based prereqs is really complicated
+		   and tbh im not exactly sure how it works (i just tried like a 1000 things and got lucky lol) so try to stay away from the OR based thing if you can.*/
 		function checkAvailable(){
 			var courses = $( "x-course" ).get();
 			$("x-course").removeClass("unavailable");
@@ -161,7 +168,6 @@ $( document ).ready(function() {
 						$("#" + courses[i].id).removeClass("completed");
 						if (courses[i].id === "cse140" && req === 'cse001cse002' && ($('#math021').hasClass('completed') && ($('#cse001').hasClass('completed') || $('#cse002').hasClass('completed')))) {
 							// should be available
-							console.log("gets here");
 							$("#" + courses[i].id).removeClass("unavailable");
 							if (completed && ($('#math021').hasClass('completed') && ($('#cse001').hasClass('completed') || $('#cse002').hasClass('completed')))) {
 								$("#" + courses[i].id).addClass("completed");
@@ -176,11 +182,10 @@ $( document ).ready(function() {
 		checkAvailable();
 		$("x-course").disableSelection();
 		$(".button").disableSelection();
-		$("x-course").click(function (e) {
-			var t = false;
 
+		/* Seriously, avoid OR based prereqs as this made this function like 4x longer although im sure theres a better way of doing it. */
+		$("x-course").click(function (e) {
 			if (this.id == 'cse140') {
-				q += 1;
 				if (completed) {
 					completed = false;
 				} else {
@@ -254,6 +259,7 @@ $( document ).ready(function() {
 			checkAvailable();
 		});
 		
+		/* Toggles between the different sidebar menus. */
 		$("#courseListing").click(function(){
 			var x = document.getElementById("desc-area");
         	x.style.display = "block";
@@ -265,6 +271,7 @@ $( document ).ready(function() {
         	$("#Placement").addClass("active3");
 		});
 
+		/* Toggles between the different sidebar menus. */
 		$("#Placement").click(function(){
 			var x = document.getElementById("desc-area");
         	x.style.display = "none";
@@ -276,10 +283,9 @@ $( document ).ready(function() {
         	$("#Placement").removeClass("active3");
 		});
 
-		
+		/* If you hover over a box. */
 		$("x-course").hoverIntent(
 		  function() {	
-			console.log($("#" + this.id).attr("prereqs"));
 			var title = $("#" + this.id).attr("title");
 			var name = $("#" + this.id).attr("nameR");
 			var credits = $("#" + this.id).attr("credits");			
@@ -293,6 +299,7 @@ $( document ).ready(function() {
 			$("x-course").removeClass("bold-course");
 		});
 
+		/* This does the course description area of the sidebar. */
 		$("#desc-area").html();
 	    for (var y = 0; y < masterCourseList.length; y++) {
 			$("#desc-area").append("<div class='accordion' id='block'>" + masterCourseList[y].name +
@@ -303,6 +310,7 @@ $( document ).ready(function() {
 			                       + "<p></p></div>");
 		}
 
+		/* This does the AP section of the sidebar. */
 		var s = "<div id = 'ap-scroll'>";
 		$("#ap").html("<tr><td colspan='2' id='f'><div id='ap_button'>Show Courses Skipped</div></td></tr>");
 	    for (var y = 0; y < masterAPList.length; y++) {
@@ -319,6 +327,8 @@ $( document ).ready(function() {
 		var acc = document.getElementsByClassName("accordion");
 		var i;
 
+		/* Credit to W3 schools for the accordion. https://www.w3schools.com/howto/howto_js_accordion.asp .
+		   I just modified it a little bit for toggling the color schemes. */
 		for (i = 0; i < acc.length; i++) {
 		  acc[i].addEventListener("click", function() {
 		    this.classList.toggle("active");
@@ -332,6 +342,18 @@ $( document ).ready(function() {
 		  });  
 		}
 
+		/* This is just an Easter Egg. Click on the title in the top right 50 times for a surprise. */
+		var b = 0;
+		$("#flow_title1").click(
+			function () {
+				b += 1;
+				if (b >= 50) {
+					document.getElementById("flow_title").innerHTML = "Lehigh University <br/>CS🅱 Course Flowchart";
+				}
+		});
+
+
+		/** This function shows which courses you've placed out of depending on your inputted AP scores. */
 		$("#ap_button").hoverIntent(function(){
 			for (i = 0; i < masterCourseList.length; i++) {
 				if (masterCourseList[i].threshold > 0) {
@@ -345,7 +367,6 @@ $( document ).ready(function() {
 								selectedIndex = document.getElementById(String(y)).value;
 								toBeAdded = masterAPList[y].value[selectedIndex];
 								threshCount += toBeAdded;
-								console.log(threshCount);
 							}
 						}
 					}
