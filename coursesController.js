@@ -2,6 +2,7 @@ $( document ).ready(function() {
 
 	var masterCourseList = new Array();
 	var masterAPList = new Array();
+	var electiveList = new Array();
 
 	/* Uses AJAX. if you want to edit the code, FYI run on firefox or edge because chrome doesn't allow AJAX to run locally. */
 	$.ajax({
@@ -11,6 +12,9 @@ $( document ).ready(function() {
 		});
 		$.each( data.apInformation, function(i, apInfo) {
 			masterAPList.push(new Placement(apInfo));
+		});
+		$.each( data.electives, function(i, elective) {
+			electiveList.push(new Elective(elective));
 		});
 		init();
 	});
@@ -57,6 +61,17 @@ $( document ).ready(function() {
 			this.placementCourses = apInfo.apInfo.placementCourses;
 			this.value = apInfo.apInfo.value;
 			this.desc = apInfo.apInfo.desc;
+	}
+
+	/* Creates an Elective object. */
+	function Elective(elective){
+			this.id = elective.elective.id;
+			this.min_credits = elective.elective.min_credits;
+			this.name = elective.elective.name;
+			this.desc = elective.elective.desc;
+			this.link = elective.elective.link;
+			this.link_name = elective.elective.link_name;
+			this.title = elective.elective.title;
 	}
 	
 	function init(){
@@ -259,28 +274,43 @@ $( document ).ready(function() {
 			checkAvailable();
 		});
 		
+
+		function sidebarToggle (a, b, c, x, y, z) {
+			var x1 = document.getElementById(z);
+        	x1.style.display = "block";
+			var y1 = document.getElementById(y);
+        	y1.style.display = "none";
+        	var z1 = document.getElementById(x);
+        	z1.style.display = "none";
+        	if ($("#" + a).hasClass("active2")) {
+				$("#" + a).removeClass("active2");
+				$("#" + a).addClass("active3");
+			}
+			if ($("#" + b).hasClass("active2")) {
+				$("#" + b).removeClass("active2");
+				$("#" + b).addClass("active3");
+			}
+			if (!$("#" + c).hasClass("active2")) {
+        		$("#" + c).addClass("active2");
+        		if ($("#" + c).hasClass("active3")) {
+        			$("#" + c).removeClass("active3");
+        		}
+        	}
+		}
+
 		/* Toggles between the different sidebar menus. */
 		$("#courseListing").click(function(){
-			var x = document.getElementById("desc-area");
-        	x.style.display = "block";
-			var y = document.getElementById("ap");
-        	y.style.display = "none";
-        	$("#courseListing").addClass("active2");
-        	$("#Placement").removeClass("active2");
-        	$("#courseListing").removeClass("active3");
-        	$("#Placement").addClass("active3");
+			sidebarToggle("electives","Placement","courseListing", "ap", "elective-area", "desc-area");
 		});
 
 		/* Toggles between the different sidebar menus. */
 		$("#Placement").click(function(){
-			var x = document.getElementById("desc-area");
-        	x.style.display = "none";
-			var y = document.getElementById("ap");
-        	y.style.display = "block";
-        	$("#courseListing").removeClass("active2");
-        	$("#Placement").addClass("active2");
-        	$("#courseListing").addClass("active3");
-        	$("#Placement").removeClass("active3");
+			sidebarToggle("electives","courseListing","Placement", "desc-area", "elective-area", "ap");
+		});
+
+		/* Toggles between the different sidebar menus. */
+		$("#electives").click(function(){
+			sidebarToggle("Placement","courseListing","electives", "desc-area", "ap", "elective-area");
 		});
 
 		/* If you hover over a box. */
@@ -309,6 +339,19 @@ $( document ).ready(function() {
 			                       + masterCourseList[y].desc + "</div>"
 			                       + "<p></p></div>");
 		}
+
+
+		/* This does the elective description area of the sidebar. */
+		$("#elective-area").html("In addition to the required courses, all CSB students must fulfill the following elective requirements.<br/>");
+	    for (var y = 0; y < electiveList.length; y++) {
+			$("#elective-area").append("<div class='accordion' id='block'>" + electiveList[y].name +
+			                       "</div><div id='block' class='panel'><b><div id='text_format'>" + electiveList[y].title + " </div></b>"
+			                       + "Minimum Credits: " + electiveList[y].min_credits + "<br/>"
+			                       + "<a target='_blank' href='" + electiveList[y].link + "'>" + electiveList[y].link_name + "</a>" + "<hr/><div id='text_format'>"
+			                       + electiveList[y].desc + "</div>"
+			                       + "<p></p></div>");
+		}
+
 
 		/* This does the AP section of the sidebar. */
 		var s = "<div id = 'ap-scroll'>";

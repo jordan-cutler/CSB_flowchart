@@ -742,5 +742,61 @@
         "desc": "",
         "type": "sat"
     }}
+],
+"electives":[
+    {"elective": {
+        "id": "professional",
+        "min_credits":"9",
+        "name": "Professional",
+        "title":"Professional Electives",
+        "link": "http://www.cse.lehigh.edu/csbtracks",
+        "link_name":"CSB Tracks",
+        "desc": "Students may choose to use their CSB professional electives to develop concentrations in particular areas of computer science, business, or the intersection of these fields. It is not required that a student complete a track, just that students fulfill the 9-credit professional elective requirement.<br/><br/><b> *NOTE: All professional electives must be approved by your advisor, and not all of the courses for every track are offered on a regular basis.* </b>"
+    }},
+    {"elective": {
+        "id": "technical",
+        "min_credits":"3-4",
+        "name": "Technical",
+        "title":"Technical Elective",
+        "link": "http://www.cse.lehigh.edu/academics/undergraduate-computer-science/bs-in-computer-science-and-business/2-uncategorised/124-csb-choice",
+        "link_name":"CSB Technical Elective List",
+        "desc": "In addition to all required CSE courses, all students must choose at least one CSE course from the list provided in the link above. <br/><br/><b>*NOTE: Not all of the courses are offered on a regular basis.* </b>"
+    }},
+    {"elective": {
+        "id": "ns",
+        "min_credits":"12",
+        "name": "Natural Sciences",
+        "title":"Natural Science Distribution",
+        "link": "http://www.cse.lehigh.edu/~korth/CSBinfo/science.pdf",
+        "link_name":"Sample CSB Science Sequences",
+        "desc": "Twelve credits are required of courses designated as Natural Sciences (NS) by the course catalog. Additionally, at least one course must have an attached laboratory and two courses must be in a laboratory science with the first course as a prerequisite to the second course. There are some NS courses that, though in a laboratory science, do not include a laboratory; instead the “attached lab” has a separate course number. Check the link above for a partial list of sample science sequences. <br/><br/><b>*NOTE: Any course used for the science requirement must have an “NS” designation in the catalog (and there are some CHM, BIOS, and EES courses that are not “NS” but rather “ND,” meaning “not designated”). The exact set of courses available depends on what each science department offers each semester. Plan carefully! *</b>"
+    }},
+    {"elective": {
+        "id": "hu",
+        "min_credits":"6",
+        "name": "Humanities",        
+        "title":"Humanities Distribution",
+        "link": "",
+        "link_name":"",
+        "desc": "Six credits are required of courses designated as Humanities (HU) by the course catalog. If you intend to minor in a field in the humanities, it is recommended you tailor your electives accordingly!"
+    }},
+    {"elective": {
+        "id": "ss",
+        "min_credits":"3",
+        "name": "Social Sciences",
+        "title":"Social Science Distribution",
+        "link": "",
+        "link_name":"",
+        "desc": "Three credits are required of courses designated as Social Sciences (SS) by the course catalog. If you intend to minor in a field in the social sciences, it is recommended you tailor your electives accordingly!"
+    }},
+    {"elective": {
+        "id": "free",
+        "min_credits":"4-5",
+        "name": "Free",
+        "title":"Free Electives",
+        "link": "",
+        "link_name":"",
+        "desc": "Five (or four if your technical elective was four credits) credits are required that may be in any subject or field. Utilize these free credits to take courses that interest you or help you complete any minors you may have! <br/><br/><b>*NOTE: Any additional credits beyond the other requirements will spillover into the free elective requirement.*</b>"
+    }}
 ]
 }

@@ -77,6 +77,7 @@ table {
 	display:none;
 	max-height: 490px;
 	max-width:285px;
+	height: 490px;
 }
 
 #why1 {
@@ -95,7 +96,7 @@ table {
 
 #ap-scroll {
 	overflow-y: scroll;
-	height:417px;
+	height:422px;
 	margin-top:5px;
 	margin-bottom: 0px;
 	padding-left:5px;
@@ -108,11 +109,21 @@ table {
 
 #desc-area {
 	padding-left:6px;
-	height:auto;
+	height:490px;
 	font-size:14px;
 	overflow-y: scroll;
 	max-height: 490px;
 	max-width:280px;
+}
+
+#elective-area {
+	display:none;
+	color:black;
+	height:490px;
+	max-height: 490px;
+	max-width:280px;
+	padding-left:6px;
+	overflow-y: scroll;
 }
 
 #block {
@@ -275,7 +286,7 @@ table {
 	display: block;
 }
 td {
-	width:50%;
+	width:33.33%;
 	border-collapse:collapse;
 
 }
@@ -298,8 +309,8 @@ th {
 	border:0px;
 }
 
-#courseListing, #Placement {
-	font-size: 20px;
+#courseListing, #Placement, #electives {
+	font-size: 19px;
 	text-align:center;
 	padding:5px;
 	cursor:pointer;
@@ -308,6 +319,8 @@ th {
 	border-color:#428bca;
 	border:5px;
 	transition:0.4s;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
 }
 
 #reset, #fall, #spring, #both {
@@ -364,16 +377,6 @@ ul {
 	width: 92.5%;
 }
 
-
-#courseListing {
-	border-bottom-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-}
-
-#Placement {
-	border-bottom-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-}
 
 #reset {
 	left:51%;
