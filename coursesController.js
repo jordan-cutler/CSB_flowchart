@@ -274,7 +274,7 @@ $( document ).ready(function() {
 			checkAvailable();
 		});
 		
-
+		/* Toggles between the different sidebar menus. */
 		function sidebarToggle (a, b, c, x, y, z) {
 			var x1 = document.getElementById(z);
         	x1.style.display = "block";
@@ -390,7 +390,7 @@ $( document ).ready(function() {
 		$("#flow_title1").click(
 			function () {
 				b += 1;
-				if (b >= 50) {
+				if (b >= 10) {
 					document.getElementById("flow_title").innerHTML = "Lehigh University <br/>CS🅱 Course Flowchart";
 				}
 		});

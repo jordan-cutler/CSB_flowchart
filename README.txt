@@ -10,6 +10,7 @@ First things first here are the changes from the old flowchart:
 		also, did some research and polled 33 CSB students and 32 of them had taken ECO 045 over 231, so i just
 		made a note at the bottom and explained the differences in the sidebar
 	- Put 241 instead of 241/341, but have a note at the bottom and explain the difference on the sidebar
+	- We now have elective stuff!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	- New color scheme, blue is new
 		I'd like to thank Jordan Cutler on the color scheme and design choices, the colors i picked while i was making this originally were pretty bad
 	- New flowchart layout, tried to make things easier to read
@@ -32,7 +33,7 @@ courseController.js
 	Ok so this is where the actual interactivity and reading of databases of the flowchart comes into play
 	I tried to comment every function, so check the comments for a better understanding of stuff
 	It's now object-oriented FYI
-	Also please avoid optional prereqs like the CSE001/002 198 thing if you can
+	Also please avoid optional prereqs like the CSE001/002 198 like the plague if you can
 
 background.png is the image with all the black arrows connecting all the courses
 	Would need to change if there is a course prereq change and stuff
@@ -65,6 +66,14 @@ data.json
 		value: the amount each respective option adds to the threshold of placing out of a course
 			in general, 0 if it doesn't help or 1 if it does
 		placementCourses: the course the AP counts towards
+	Elective
+		id: it's an id, just used for setting up divs
+		min_credits: minimum number of credits
+		link: the link if that elective has one
+		link_name: what the name of the link will be
+		name: used for the pre accordion, ie short name
+		title: used for the post accordion, ie long name
+		desc: it's a description of the thing.
 
 hoverIntent.js
 	NO TOUCH
