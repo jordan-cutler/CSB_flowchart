@@ -635,8 +635,8 @@
 ],
 "apInformation":[
     {"apInfo": {
-        "id": "act_english",
-        "name": "ACT English",
+        "id": "act_writing",
+        "name": "ACT Writing",
         "options": ["Score","<32","32-33","34-36"],
         "value":[0,0,1,10],
         "placementCourses":["engl001","engl002"],
